@@ -14,11 +14,6 @@ from flask_sqlalchemy import SQLAlchemy
 app = Flask(__name__)
 
 
-#################################################
-# Database Setup
-#################################################
-
-#app.config["SQLALCHEMY_DATABASE_URI"] = os.environ.get('DATABASE_URL', '') or "sqlite:///db/bellybutton.sqlite"
 app.config["SQLALCHEMY_DATABASE_URI"] = "sqlite:///db/bellybutton.sqlite"
 db = SQLAlchemy(app)
 
@@ -27,7 +22,7 @@ Base = automap_base()
 # reflect the tables
 Base.prepare(db.engine, reflect=True)
 
-# Save references to each table
+# save references to each table
 Samples_Metadata = Base.classes.sample_metadata
 Samples = Base.classes.samples
 
@@ -42,11 +37,11 @@ def index():
 def names():
     """Return a list of sample names."""
 
-    # Use Pandas to perform the sql query
+    # perform the sql query
     stmt = db.session.query(Samples).statement
     df = pd.read_sql_query(stmt, db.session.bind)
 
-    # Return a list of the column names (sample names)
+    # return a list of the column names (sample names)
     return jsonify(list(df.columns)[2:])
 
 
@@ -65,7 +60,7 @@ def sample_metadata(sample):
 
     results = db.session.query(*sel).filter(Samples_Metadata.sample == sample).all()
 
-    # Create a dictionary entry for each row of metadata information
+    # created a dictionary entry for each row of metadata information
     sample_metadata = {}
     for result in results:
         sample_metadata["sample"] = result[0]
@@ -86,14 +81,13 @@ def samples(sample):
     stmt = db.session.query(Samples).statement
     df = pd.read_sql_query(stmt, db.session.bind)
 
-    # Filter the data based on the sample number and
-    # only keep rows with values above 1
+    # filter the data based on the sample number and only keep rows with values above 1
     sample_data = df.loc[df[sample] > 1, ["otu_id", "otu_label", sample]]
 
-    # Sort by sample
+    # sorted by sample
     sample_data.sort_values(by=sample, ascending=False, inplace=True)
 
-    # Format the data to send as json
+    # send as json
     data = {
         "otu_ids": sample_data.otu_id.values.tolist(),
         "sample_values": sample_data[sample].values.tolist(),
