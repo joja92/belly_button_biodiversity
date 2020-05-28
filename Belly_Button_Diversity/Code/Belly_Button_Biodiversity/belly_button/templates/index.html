@@ -19,6 +19,7 @@
       </div>
     </div>
     <div class="row">
+      <!-- sample metadata table with dropdown -->
       <div class="col-md-2">
         <div class="well">
           <h5>SELECT Sample:</h5>
@@ -31,6 +32,7 @@
           <div id="sample-metadata" class="panel-body"></div>
         </div>
       </div>
+      <!-- pie chart -->
       <div class="col-md-5">
         <div id="pie"></div>
       </div>
@@ -40,12 +42,12 @@
     </div>
   </div>
   <div class="row">
+    <!-- bubble chart -->
     <div class="col-md-12">
       <div id="bubble"></div>
     </div>
   </div>
 
-  <!-- <script src="https://cdn.plot.ly/plotly-1.31.2.min.js"></script> -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/5.5.0/d3.js"></script>
   <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
   <script src="{{ url_for('static', filename='js/bonus.js') }}"></script>
