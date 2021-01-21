@@ -1,7 +1,7 @@
 # Belly Button Biodiversity
 This project is a part of the [Data Science Bootcamp](https://bootcamp.pe.gatech.edu/data/) at [Georgia Tech](https://bootcamp.pe.gatech.edu/).
 
-#### -- Project Status: [Active]
+#### -- Project Status: [Complete]
 
 ## Project Intro/Objective
 The purpose of this project is to provide an interactive visualization for each sample in a data collection.
