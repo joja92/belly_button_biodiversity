@@ -33,6 +33,7 @@ function buildMetadata(sample) {
       //console.log(key, value);
       selector.append("div").html(`${key}: ${value}`);
     })
+    // gauge build
     var trace3 = {
       domain: {
         x: [0, 1],
@@ -75,44 +76,6 @@ function buildMetadata(sample) {
   })
 }
 
-//
-//
-// d3.json(`/metadata/`+sample).then(function(response) {
-//   //console.log(response);
-//   var selector = d3.select("#sample-metadata");
-//   // clear any existing metadata
-//   selector.html("");
-//   // add each key and value pair to the panel
-//   Object.entries(response).forEach(function([key, value]) {
-//     //console.log(key, value);
-//     selector.append("div").html(`${key}: ${value}`);
-//   })
-// })
-// var trace3 = {
-//   domain: {
-//     x: [0, 1],
-//     y: [0, 1]
-//   },
-//   value: response.wfreq,
-//   title: {
-//     text: "Belly Button Washing Frequency"
-//   },
-//   type: "indicator",
-//   mode: "gauge+number"
-// }
-// var data3 = [trace3];
-// var layout3 = {
-//   width: 600,
-//   height: 500,
-//   margin: {
-//     t: 0,
-//     b: 0
-//   }
-// }
-// Plotly.newPlot('gauge', data3, layout3);
-//
-//
-
 function buildCharts(sample) {
   var sample_url = `/samples/`+sample;
   // use `d3.json` to fetch the sample data for the plots
@@ -153,42 +116,6 @@ function buildCharts(sample) {
       width: 1000
     };
     Plotly.newPlot('bubble', data2, layout2);
-    // Gauge
-    
-    // d3.json(`/metadata/`+sample).then(function(response) {
-    //   //console.log(response);
-    //   var selector = d3.select("#sample-metadata");
-    //   // clear any existing metadata
-    //   selector.html("");
-    //   // add each key and value pair to the panel
-    //   Object.entries(response).forEach(function([key, value]) {
-    //     //console.log(key, value);
-    //     selector.append("div").html(`${key}: ${value}`);
-    //   })
-    // })
-    
-    // var trace3 = {
-    //   domain: {
-    //     x: [0, 1],
-    //     y: [0, 1]
-    //   },
-    //   value: response.wfreq,
-    //   title: {
-    //     text: "Belly Button Washing Frequency"
-    //   },
-    //   type: "indicator",
-    //   mode: "gauge+number"
-    // }
-    // var data3 = [trace3];
-    // var layout3 = {
-    //   width: 600,
-    //   height: 500,
-    //   margin: {
-    //     t: 0,
-    //     b: 0
-    //   }
-    // }
-    // Plotly.newPlot('gauge', data3, layout3);
   });
 }
 
