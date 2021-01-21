@@ -27,7 +27,7 @@ The Belly Button Biodiversity provides the user with two interactive visualizati
 The page provides a dropdown with a list of each sample number. The page loads the sample's metadata in a table, filling it with various information about the sample. A pie chart is created with each OTU from the sample and it's percentage value. Following, a chart is populated with bubbles that represent each OTU. The greater the percentage, the larger the bubble. The larger the count of the OTU, the higher on the y-scale the bubble is. The x-scale represents the ID of each OTU.
 ![pieandgauge](Belly_Button_Diversity/Images/pieandgauge.png)
 ![bubble](Belly_Button_Diversity/Images/bubble.png)
-The app was built using Flask in Python, and the data is kept in a sqlite database. The charts of the webpage are generated using Plotly in JavaScript.
+The app was built using Flask in Python, and the data is kept in a sqlite database. The charts of the webpage are generated using Plotly in JavaScript. The application is hosted on Heroku ([link](https://bbd-plotly.herokuapp.com/)).
 
 ## Getting Started
 
